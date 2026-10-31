@@ -68,6 +68,14 @@ Legend: ✅ confirmed on a real run · ⚠️ partly confirmed / with caveats ·
 | Status changes reach the UI within about 1 s | ✅ Hook to SSE takes 8–11 ms on a real session (see above). The UI applies events as they arrive. |
 | Day/night: 15-minute cycle, smooth, manual switch | ✅ Unit tests check the cycle period and the smoothness of the ambient gradient. Playwright clicks Day/Night and presses `N`. Screenshots in `docs/screens/`. |
 | 60 FPS with 20 agents and about 60 NPCs | ❌ **Not verifiable here: there is no GPU.** Under SwiftShader (software WebGL) the full scene runs at about 2 FPS. JS work per frame is about 20 ms; the rest is software rasterisation. The simulation uses sub-steps, so it stays correct at any FPS. Auto quality drops to 30 FPS and cheaper lighting when the measured FPS is below 40. |
+| No CSP errors in the console | ✅ `connect-src` allows `data:` (Pixi probes a 1×1 data-URL PNG with `fetch`), and an empty `assets/custom/custom.json` ships so the optional custom-atlas lookup gets 200, not 404. Checked in the browser after a daemon restart. |
 | No `eval` under a strict CSP | ✅ The page is served with `script-src 'self'`; Pixi runs through `pixi.js/unsafe-eval`, which swaps in static code paths. |
-| Terminal mod (`mods/agent-office-panel`) | ⚠️ `claude plugin validate` passes and the module type-checks against the engine's `claude-code.d.ts` (2.1.314). It was **not loaded live**: enabling mods needs the user's confirmation in an interactive session. |
+| Panel mod (`mods/agent-office-panel`) | ✅ Loaded live in the Claude desktop app (2.1.309, Windows 11). `/office-panel` opens the pane with the isometric mini-office (SVG); subagent desks and status animations update as they work. `claude plugin validate` passes, `tsc -p` is clean, and `claude plugin test` runs 2 tests (desktop SVG and terminal text list). |
 | Status line script | ✅ Prints a line and forwards `cost.total_cost_usd` as `cost.tick` (manual run with sample JSON). Not installed into real user settings. |
+
+## Windows desktop app (2.1.309)
+
+| Claim | Result |
+|---|---|
+| Install from GitHub: `claude plugin marketplace add whoamnesia/agent-office`, then `claude plugin install agent-office@agent-office` and `agent-office-panel@agent-office` | ✅ Both plugins install and show as enabled (checked in a clean `CLAUDE_CONFIG_DIR`). |
+| Live office during a real session | ✅ The daemon starts from the SessionStart hook. `/agent-office:office` gives the link. The director card shows the main agent’s calls and files. Two background Explore subagents appear at desks, go thinking → done, celebrate and leave. The HUD shows 0 errors. |
