@@ -11,3 +11,4 @@ tools/hook-logger/out/
 
 # original source snapshot (identical to the tree)
 agent-office-src.tar.gz
+.ao-preview/
