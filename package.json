@@ -1,0 +1,28 @@
+{
+  "name": "agent-office-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "assets": "npm run gen -w @agent-office/asset-gen",
+    "build": "npm run assets && npm run build -w @agent-office/office-web && node scripts/bundle.mjs",
+    "bundle": "node scripts/bundle.mjs",
+    "dev": "node scripts/dev.mjs",
+    "demo": "node scripts/demo.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc -b packages/protocol packages/office-core packages/daemon packages/relay packages/asset-gen packages/office-web",
+    "screenshots": "node scripts/screenshots.mjs",
+    "validate": "claude plugin validate ./plugin"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.5",
+    "esbuild": "0.28.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}

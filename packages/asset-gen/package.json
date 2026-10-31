@@ -1,0 +1,7 @@
+{
+  "name": "@agent-office/asset-gen",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": { "gen": "tsx src/main.ts" },
+  "dependencies": { "@napi-rs/canvas": "1.0.11" }
+}

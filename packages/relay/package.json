@@ -1,0 +1,8 @@
+{
+  "name": "@agent-office/relay",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/core.ts",
+  "exports": { ".": "./src/core.ts" },
+  "dependencies": { "@agent-office/protocol": "0.1.0", "zod": "3.25.76" }
+}

@@ -1,0 +1,13 @@
+node_modules/
+**/dist/
+!plugin/dist/
+*.tsbuildinfo
+.ao-data/
+test-results/
+playwright-report/
+.DS_Store
+tools/hook-logger/out/
+.ao-data-dev/
+
+# original source snapshot (identical to the tree)
+agent-office-src.tar.gz

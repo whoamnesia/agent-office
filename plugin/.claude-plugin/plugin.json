@@ -1,0 +1,8 @@
+{
+  "name": "agent-office",
+  "version": "0.1.0",
+  "description": "Isometric pixel-art office where every Claude Code session and subagent is a worker. Day/night Moscow City block, live from hooks.",
+  "author": { "name": "kishrish78" },
+  "license": "MIT",
+  "keywords": ["visualization", "subagents", "hooks", "pixel-art", "dashboard"]
+}

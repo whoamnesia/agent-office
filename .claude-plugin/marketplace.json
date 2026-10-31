@@ -1,0 +1,14 @@
+{
+  "name": "agent-office",
+  "owner": { "name": "kishrish78" },
+  "metadata": { "description": "Agent Office: an isometric pixel-art office for your Claude Code agents." },
+  "plugins": [
+    {
+      "name": "agent-office",
+      "source": "./plugin",
+      "description": "Every Claude Code session and subagent becomes a worker in a cozy isometric office in a Moscow City block, with day and night.",
+      "version": "0.1.0",
+      "category": "productivity"
+    }
+  ]
+}

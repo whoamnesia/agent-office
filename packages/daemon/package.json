@@ -1,0 +1,12 @@
+{
+  "name": "@agent-office/daemon",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "bin": { "agent-office": "../../plugin/bin/agent-office" },
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": {
+    "@agent-office/protocol": "0.1.0",
+    "zod": "3.25.76"
+  }
+}

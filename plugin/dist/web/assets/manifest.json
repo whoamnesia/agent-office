@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "generatedBy": "@agent-office/asset-gen",
+  "sheets": [
+    "chars",
+    "office",
+    "city",
+    "fx",
+    "buildings"
+  ],
+  "sky": [
+    "sky_far",
+    "sky_far_night",
+    "sky_mid",
+    "sky_mid_night",
+    "cloud_0",
+    "cloud_1",
+    "cloud_2"
+  ],
+  "tile": {
+    "w": 32,
+    "h": 16
+  },
+  "floor": {
+    "w": 20,
+    "d": 16,
+    "storeyH": 66,
+    "slabH": 8,
+    "lobbyH": 52,
+    "wallH": 58
+  },
+  "desk": {
+    "h": 13,
+    "monitor": {
+      "x0": 0.62,
+      "x1": 1.38,
+      "y": 0.32,
+      "z0": 17,
+      "z1": 27
+    }
+  },
+  "char": {
+    "w": 24,
+    "h": 36,
+    "feetX": 12,
+    "feetY": 34,
+    "presets": [
+      "explore_0",
+      "explore_1",
+      "explore_2",
+      "general_0",
+      "general_1",
+      "general_2",
+      "plan_0",
+      "plan_1",
+      "plan_2",
+      "review_0",
+      "review_1",
+      "review_2",
+      "qa_0",
+      "qa_1",
+      "qa_2",
+      "docs_0",
+      "docs_1",
+      "docs_2",
+      "security_0",
+      "security_1",
+      "security_2",
+      "frontend_0",
+      "frontend_1",
+      "frontend_2",
+      "director",
+      "npc_cleaner",
+      "npc_guard",
+      "npc_barista",
+      "npc_courier",
+      "npc_visitor_a",
+      "npc_visitor_b",
+      "npc_visitor_c",
+      "npc_visitor_d",
+      "npc_chef",
+      "npc_musician"
+    ],
+    "families": [
+      "explore",
+      "general",
+      "plan",
+      "review",
+      "qa",
+      "docs",
+      "security",
+      "frontend"
+    ],
+    "anims": {
+      "idle": 2,
+      "walk": 4,
+      "carry": 4,
+      "sit": 1,
+      "type": 2,
+      "read": 2,
+      "think": 2,
+      "hand": 2,
+      "error": 2,
+      "joy": 2,
+      "sleep": 2,
+      "coffee": 2,
+      "phone": 2,
+      "stretch": 1,
+      "dance": 2
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@agent-office/protocol",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": { ".": "./src/index.ts", "./mapping": "./src/mapping.ts", "./transcript": "./src/transcript.ts" },
+  "dependencies": { "zod": "3.25.76" }
+}

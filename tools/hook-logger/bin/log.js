@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+const fs=require('fs');let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{const out=process.env.HOOK_LOG||'/tmp/hook-log.jsonl';fs.appendFileSync(out,JSON.stringify({t:Date.now(),env:{CLAUDE_PLUGIN_ROOT:process.env.CLAUDE_PLUGIN_ROOT,CLAUDE_PLUGIN_DATA:process.env.CLAUDE_PLUGIN_DATA,CLAUDE_PROJECT_DIR:process.env.CLAUDE_PROJECT_DIR},payload:JSON.parse(d||'{}')})+'\n')}catch(e){}process.exit(0)});

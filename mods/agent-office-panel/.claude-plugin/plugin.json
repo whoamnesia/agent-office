@@ -1,0 +1,8 @@
+{
+  "name": "agent-office-panel",
+  "version": "0.1.0",
+  "description": "Text panel beside the chat: this session's subagents and their statuses (Agent Office companion).",
+  "author": { "name": "kishrish78" },
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}
