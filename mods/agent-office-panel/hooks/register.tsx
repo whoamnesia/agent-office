@@ -98,7 +98,7 @@ export const register: Register = on => {
     const workers: Worker[] = agents.map(a => {
       const st = statusOf(a, seen[a.id])
       const tool = ACTIVE.has(a.status) ? seen[a.id]?.tool : ''
-      return { id: a.id, label: a.name ?? a.type, detail: [tool, a.description].filter(Boolean).join(' · '), status: st }
+      return { id: a.id, label: a.name ?? a.type, type: a.type, detail: [tool, a.description].filter(Boolean).join(' · '), status: st }
     })
     // Desks go to the running ones first, then the most recent finished.
     const desks = [...workers.filter((_, i) => ACTIVE.has(agents[i]!.status)), ...workers.filter((_, i) => !ACTIVE.has(agents[i]!.status)).reverse()]

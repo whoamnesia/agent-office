@@ -53,6 +53,19 @@ test('a subagent at work shows as a desk on desktop and a row in the terminal', 
   await pending
 })
 
+test('a full office of pixel sprites stays under the Svg size limit', async ($, on) => {
+  const kinds = ['Explore', 'Plan', 'general-purpose', 'code-reviewer', 'test-runner', 'docs-writer', 'security-auditor', 'frontend-dev']
+  const many = Array.from({ length: 14 }, (_, i) => ({ id: `a${i}`, type: kinds[i % kinds.length]!, description: `task ${i}`, status: 'running' as const }))
+  on('ui.open', () => ({ value: { isPlaced: true } }))
+  on('agent.list', () => ({ value: many }))
+  const ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
+  const { source } = (await ui.find({ type: 'Svg' }) as unknown as { props: { source: string } }).props
+  expect(source).not.toContain('<image')
+  expect(source).toContain('<use href="#k')
+  expect(source.length).toBeLessThan(131072)
+  await ui.unmount()
+})
+
 test('a permission ask makes the director wait for you', async ($, on) => {
   on('ui.open', () => ({ value: { isPlaced: true } }))
   on('agent.list', () => ({ value: [] }))
