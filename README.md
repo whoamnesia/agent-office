@@ -1,5 +1,7 @@
 # Agent Office
 
+**English** · [Русский](README.ru.md)
+
 **An isometric pixel-art office for your Claude Code agents.** Every session is a storey in a glass tower in a Moscow City block, and every subagent is a worker: they walk from the elevator to a desk in their department, type, read, run tests in the server room and pin threads on the board in the analytics room. When they need you, they raise a hand. When they finish, they carry a document to the Outbox. Around the office there's a living city block with a 15-minute day/night cycle.
 
 ![A full day in 36 frames](docs/screens/day-cycle.gif)
@@ -12,30 +14,33 @@
 
 More frames are in [`docs/screens/`](docs/screens): dawn. All phases of the day, plus rain, snow and fog: `npm run screenshots`.
 
-## Quick start
+## Install (2 minutes)
+
+You need [Claude Code](https://code.claude.com) and [Node.js](https://nodejs.org) 20+. No cloning or `npm install`: everything is prebuilt.
 
 ```bash
-git clone <this repo> agent-office && cd agent-office
-npm install
-npm run demo          # demo office in a couple of seconds, no Claude Code needed
-```
-
-With a real session, from the repository root:
-
-```bash
-claude --plugin-dir ./plugin
-```
-
-Then type `/agent-office:office` in Claude Code to get the link. The office also starts on its own when a session starts (`autostart`).
-
-### Install from the marketplace
-
-```bash
-claude plugin marketplace add <owner>/<repo>      # or a local path: ./
+claude plugin marketplace add whoamnesia/agent-office
 claude plugin install agent-office@agent-office
 ```
 
-The repository root contains `.claude-plugin/marketplace.json`, and the plugin itself lives in `plugin/`. Everything it needs to run (`bin/`, `dist/`) is already built and committed.
+Restart Claude Code, then type `/agent-office:office` in the chat and open the link it gives you. `/agent-office:office-demo` shows the office with demo agents.
+
+Optional mini office in a panel beside the chat (early-access mod API), opened with `/office-panel`:
+
+```bash
+claude plugin install agent-office-panel@agent-office
+```
+
+Update: `claude plugin marketplace update agent-office && claude plugin update agent-office@agent-office`. Remove: `claude plugin uninstall agent-office@agent-office`.
+
+### From source (development)
+
+```bash
+git clone https://github.com/whoamnesia/agent-office && cd agent-office
+npm install
+npm run demo                    # demo office in a couple of seconds, no Claude Code needed
+claude --plugin-dir ./plugin    # a real session with the plugin from this checkout
+```
 
 ## Commands
 
@@ -43,7 +48,7 @@ The repository root contains `.claude-plugin/marketplace.json`, and the plugin i
 |---|---|
 | Open the office (starts the local daemon, prints the URL, tries to open the browser) | `/agent-office:office` |
 | Open the demo | `/agent-office:office-demo` |
-| Text panel with agents beside the chat (mod, optional, see below) | `/office-panel` |
+| Mini office in a panel beside the chat (mod, optional, see below) | `/office-panel` |
 | CLI | `node plugin/bin/agent-office start [--demo] [--open] \| stop \| status \| url \| replay <file.jsonl> [--speed 20] \| init-cloud [--dir <repo>] \| relay` |
 
 npm scripts: `npm run demo`, `npm run dev` (daemon + Vite with hot reload), `npm run build`, `npm test`, `npm run test:e2e`, `npm run screenshots` (every phase of the day into `docs/screens/`), `npm run assets`, `npm run validate`.
@@ -167,9 +172,9 @@ Subagent transcripts from `<session>/subagents/` are picked up automatically. Th
   ```json
   { "statusLine": { "type": "command", "command": "node <path>/plugin/bin/ao-statusline" } }
   ```
-- **Text panel in the terminal (mod)** in `mods/agent-office-panel/`:
-  - shows the list of agents and statuses through `$.agent.list()`;
-  - is enabled with `claude --plugin-dir ./mods/agent-office-panel` and opened with `/office-panel`;
+- **Mini office in a panel (mod)** in `mods/agent-office-panel/`:
+  - an isometric SVG office beside the chat on desktop, a text list in the terminal;
+  - installed with `claude plugin install agent-office-panel@agent-office` (or `claude --plugin-dir ./mods/agent-office-panel`) and opened with `/office-panel`;
   - is an *early access* API, and mods don't draw in the cloud.
 
 ## Development

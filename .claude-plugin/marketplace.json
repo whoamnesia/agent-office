@@ -9,6 +9,13 @@
       "description": "Every Claude Code session and subagent becomes a worker in a cozy isometric office in a Moscow City block, with day and night.",
       "version": "0.1.0",
       "category": "productivity"
+    },
+    {
+      "name": "agent-office-panel",
+      "source": "./mods/agent-office-panel",
+      "description": "Optional: a mini office in a panel beside the chat (/office-panel). Early-access mod API.",
+      "version": "0.1.0",
+      "category": "productivity"
     }
   ]
 }
